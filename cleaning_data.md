@@ -18,7 +18,7 @@ GROUP BY al.country
 ORDER BY transaction_revenue DESC
 ```
 
->`` SQL
+```sql
 WITH distinct_visitor_id AS (
 	SELECT DISTINCT(al.full_visitor_id) AS full_visitor_id, al.city, a.units_sold AS units_sold
 	FROM all_sessions al
@@ -29,7 +29,7 @@ SELECT city, AVG(units_sold) AS average_units_sold
 FROM distinct_visitor_id
 GROUP BY city
 ORDER BY average_units_sold DESC;
->``
+```
 
 >`` SQL
 WITH top_categories AS(
