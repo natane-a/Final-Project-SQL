@@ -10,8 +10,7 @@ Below, provide the SQL queries you used to clean your data.
 
 Example:
 ```sql
-SELECT al.country AS country, 
-		SUM((a.unit_price / 1000000)* a.units_sold) AS transaction_revenue
+SELECT al.country AS country, SUM((a.unit_price / 1000000)* a.units_sold) AS transaction_revenue
 FROM all_sessions al
 JOIN analytics a ON al.full_visitor_id = a.full_visitor_id
 WHERE ((a.unit_price / 1000000)* a.units_sold) IS NOT NULL 
