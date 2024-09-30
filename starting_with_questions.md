@@ -35,29 +35,34 @@ The countries with the highest transaction revenue are The United States, Czechi
 
 SQL Queries:
 >`` SQL
-SELECT 	al.city AS city,
-		AVG(a.units_sold) AS average_units_sold
-FROM all_sessions al
-JOIN analytics a ON al.full_visitor_id = a.full_visitor_id
-WHERE (a.units_sold) IS NOT NULL 
-	   AND city != 'not available in demo dataset'
-GROUP BY al.city
-ORDER BY average_units_sold DESC
+WITH distinct_visitor_id AS (
+	SELECT DISTINCT(al.full_visitor_id) AS full_visitor_id, al.city, a.units_sold AS units_sold
+	FROM all_sessions al
+	JOIN analytics a ON al.full_visitor_id = a.full_visitor_id
+	WHERE a.units_sold IS NOT NULL AND city != 'not available in demo dataset'
+)
+SELECT city, AVG(units_sold) AS average_units_sold
+FROM distinct_visitor_id
+GROUP BY city
+ORDER BY average_units_sold DESC;
 >``
 >`` SQL
-SELECT 	al.country AS country,
-		AVG(a.units_sold) AS average_units_sold
-FROM all_sessions al
-JOIN analytics a ON al.full_visitor_id = a.full_visitor_id
-WHERE (a.units_sold) IS NOT NULL 
-GROUP BY al.country
-ORDER BY average_units_sold DESC
+WITH distinct_visitor_id AS (
+	SELECT DISTINCT(al.full_visitor_id) AS full_visitor_id, al.country, a.units_sold AS units_sold
+	FROM all_sessions al
+	JOIN analytics a ON al.full_visitor_id = a.full_visitor_id
+	WHERE a.units_sold IS NOT NULL
+)
+SELECT country, AVG(units_sold) AS average_units_sold
+FROM distinct_visitor_id
+GROUP BY country
+ORDER BY average_units_sold DESC;
 >``
 
 
 ##Answer:
-The average units sold in each city can be seen using the query above, with some of the averages being 52.6 in San Bruno, 16.16 in Mountain View, and 8.56 in San Jose.
-The average units sold in each country can be seen using the query above, with some of the averages being 19.2 in The United States, 15.18 in Czechia and 1.83 in Mexico.
+The average units sold in each city can be seen using the query above, with the top 3 cities being San Bruno, Seattle and Sunnyvale.
+The average units sold in each country can be seen using the query above, with the top 3 being Czechia, United States and Canada.
 
 
 
