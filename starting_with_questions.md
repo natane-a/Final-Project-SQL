@@ -26,7 +26,7 @@ GROUP BY al.country
 ORDER BY transaction_revenue DESC
 ```
 
-##Answer:
+##  Answer:
 The cities with the highest transaction revenue are Mountain View, San Bruno, New York, Chicago, and Sunny Vale.
 The countries with the highest transaction revenue are The United States, Czechia, Canada, Hong Kong, and Mexico.
 
@@ -61,7 +61,7 @@ ORDER BY average_units_sold DESC;
 ```
 
 
-##Answer:
+## Answer:
 The average units sold in each city can be seen using the query above, with the top 3 cities being San Bruno, Seattle and Sunnyvale.
 The average units sold in each country can be seen using the query above, with the top 3 being Czechia, United States and Canada.
 
@@ -89,7 +89,7 @@ WHERE rank <=5
 ORDER BY category_count DESC, rank
 ```
 
-##Answer:
+## Answer:
 Using the query above, I have gathered that mens apparel is the most popular category in cities within The United States, while youtube brand is the most popular in cities outside of The United States.
 
 
@@ -117,7 +117,7 @@ WHERE rank <=1
 ORDER BY product_count DESC, rank
 ```
 
-Answer:
+## Answer:
 The top product for most cities in the United States is the Google Men's White Tee, 
 while in other countries it ranges from google tees to youtube merch.
 
@@ -147,7 +147,7 @@ WHERE ((a.unit_price / 1000000)* a.units_sold) IS NOT NULL
 GROUP BY al.country
 ORDER BY transaction_revenue DESC
 ```
-Answer: 
+## Answer: 
 Using these queries we can find that the United States heavily impacts the revenue generated significantly
 more than any other country. 
 
