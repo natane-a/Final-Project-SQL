@@ -23,3 +23,6 @@ what was relevant was a task. Handling null values
 ## Future Goals
 I'd look more into the products table, as I didn't take much of a look at the ordered_quantity or stock_level columns.
 I would also look more at relationships that the social_engagement_type and channel_grouping columns have with the rest of the data_set.
+
+
+![ERD](https://github.com/natane-a/sql-data-project/blob/main/schema.png?raw=true)
