@@ -31,7 +31,7 @@ GROUP BY city
 ORDER BY average_units_sold DESC;
 ```
 
->`` SQL
+```sql
 WITH top_categories AS(
 	SELECT 	country,
 			city,
@@ -47,5 +47,5 @@ SELECT city, country, product_category, category_count
 FROM top_categories
 WHERE rank <=5 
 ORDER BY category_count DESC, rank
->``
+```
 
